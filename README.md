@@ -80,6 +80,14 @@ This applies the change to the system, commits, and pushes to GitHub in one comm
 - `rebuild.sh` - applies changes + git commit + push
 - `flake.lock` - locked versions (auto-generated, don't edit manually)
 
+## Why there's no `configuration.nix`
+
+The original macOS setup this repo is based on uses `configuration.nix` for **nix-darwin**, which manages system-level settings (Dock, Finder, trackpad, menu bar) and declarative Homebrew (`homebrew.onActivation.cleanup = "zap"`, which removes any Homebrew package not listed in the config). Both of these depend on nix-darwin, which only exists for macOS.
+
+On WSL/Linux there is no equivalent system-management layer - Home Manager only manages the user level (packages, shell, dotfiles), not the OS itself. So this repo only has `home.nix`, and there is no Linux counterpart to `configuration.nix` to maintain.
+
+One consequence: the "zap" behavior (fully reproducible, self-cleaning Homebrew state) isn't available here. `nix-homebrew`, the module that ties Homebrew into the declarative build on macOS, is macOS-only. On WSL, Homebrew and anything installed through it (like `herdr`) sit outside the Nix-managed, reproducible part of this setup - see the note below.
+
 ## Notes
 
 - `claude-code` requires `nixpkgs.config.allowUnfree = true` (already set in `home.nix`)

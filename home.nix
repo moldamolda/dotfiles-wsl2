@@ -16,7 +16,12 @@
     claude-code
   ];
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    initExtra = ''
+      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    '';
+  };
 
   home.sessionVariables = {
     EDITOR = "nvim";

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   home.username = "danie";
   home.homeDirectory = "/home/danie";
@@ -14,6 +14,7 @@
     lazygit
     neovim
     claude-code
+    wezterm
   ];
 
   programs.zsh = {
@@ -26,4 +27,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
   };
+
+  home.file.".config/wezterm".source = 
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/molda_dotfiles/home/.config/wezterm";
 }

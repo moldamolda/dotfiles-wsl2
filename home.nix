@@ -5,7 +5,7 @@
   home.stateVersion = "24.05";
 
   nixpkgs.config.allowUnfree = true;
-  fonts.fontconfig.enable = true
+  fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
     ripgrep

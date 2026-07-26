@@ -1,23 +1,16 @@
 {
   description = "dotfiles";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    herdr.url = "github:ogulcancelik/herdr";
   };
-
-  outputs = { self, nixpkgs, home-manager, herdr, ... }: {
+  outputs = { self, nixpkgs, home-manager, ... }: {
     homeConfigurations."molda" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      modules = [
-        {
-          home.packages = [ herdr.packages.x86_64-linux.default ];
-        }
-        ./home.nix
-      ];
+      modules = [ ./home.nix ];
     };
   };
 }

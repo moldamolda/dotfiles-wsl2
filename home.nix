@@ -15,9 +15,15 @@
     lazygit
     neovim
     claude-code
-    wezterm
     nerd-fonts.hack
   ];
+
+  home.file.".config/wezterm".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/molda_dotfiles/home/.config/wezterm";
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
 
   programs.zsh = {
     enable = true;
@@ -25,11 +31,4 @@
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     '';
   };
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
-
-  home.file.".config/wezterm".source = 
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/molda_dotfiles/home/.config/wezterm";
 }

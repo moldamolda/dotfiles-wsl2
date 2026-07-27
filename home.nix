@@ -1,12 +1,12 @@
-{ pkgs, config, ... }:
+{ pkgs, config, user, ... }:
 {
-  home.username = "danie";
-  home.homeDirectory = "/home/danie";
+  home.username = user;
+  home.homeDirectory = "/home/${user}";
   home.stateVersion = "24.05";
 
   nixpkgs.config.allowUnfree = true;
   fonts.fontconfig.enable = true;
-
+  
   home.packages = with pkgs; [
     ripgrep
     fd

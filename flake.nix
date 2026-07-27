@@ -7,10 +7,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { self, nixpkgs, home-manager, ... }: {
-    homeConfigurations."molda" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      modules = [ ./home.nix ];
+
+  outputs = { self, nixpkgs, home-manager, ... }:
+    let
+      # The one username line to change if this isn't your machine.
+      user = "danie";
+    in
+    {
+      homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = { inherit user; };
+        modules = [ ./home.nix ];
+      };
     };
-  };
 }

@@ -8,13 +8,6 @@ config.font_size = 15.0
 config.window_background_opacity = 0.8
 config.macos_window_background_blur = 50
 config.hide_tab_bar_if_only_one_tab = true
-config.window_decorations = "RESIZE"
-config.mouse_bindings = {
-  {
-    event = { Drag = { streak = 1, button = "Left" } },
-    mods = "ALT",
-    action = wezterm.action.StartWindowDrag,
-  },
-}
+config.window_decorations = "TITLE | RESIZE"
 
 return config

@@ -28,7 +28,13 @@ in
     initContent = ''
       bindkey '^f' autosuggest-accept
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+      # Always land in ~ instead of the Windows path WSL inherited
+      if [[ "$PWD" == /mnt/c/* ]]; then
+        cd ~
+      fi
     '';
+
     shellAliases = {
       ".." = "cd ..";
       add = "git add .";

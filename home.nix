@@ -49,10 +49,10 @@ in
   programs.starship = {
     enable = true;
     settings = {
-      add_newline = false;
+      add_newline = true;
       format = "$directory$git_branch$git_status$cmd_duration$line_break$character";
       character = {
-        success_symbol = "[❯](purple)";
+        success_symbol = "[❯](green)";
         error_symbol = "[❯](red)";
       };
       cmd_duration.format = "[$duration]($style) ";

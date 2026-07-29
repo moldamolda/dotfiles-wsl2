@@ -10,7 +10,9 @@ sudo apt install -y \
   bubblewrap \
   libegl1 \
   mesa-utils \
-  libglx-mesa0
+  libglx-mesa0 \
+  unzip
+
 
 echo "==> Installing WezTerm (via official apt repo)"
 curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg

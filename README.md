@@ -101,6 +101,7 @@ This applies the change, commits, and pushes - all in one command.
 
 - `flake.nix` - defines inputs (nixpkgs, home-manager) and the entry point
 - `home.nix` - the actual configuration: packages, shell, editor
+- `bootstrap.sh` - installs system-level dependencies (apt packages, WezTerm, Nix, Homebrew) on a fresh machine
 - `rebuild.sh` - applies changes + git commit + push
 - `flake.lock` - locked versions (auto-generated, don't edit manually)
 

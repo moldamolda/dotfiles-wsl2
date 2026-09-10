@@ -11,6 +11,21 @@ Running `./rebuild.sh` sets up/updates:
 - CLI tools via Nix: `ripgrep`, `fd`, `fzf`, `jq`, `lazygit`, `neovim`, `claude-code`
 - Shell: `zsh` with Homebrew shell integration
 - Editor: `nvim` as the default `$EDITOR`
+- Terminal: WezTerm with custom colors
+- Terminal multiplexer: herdr
+
+Everything is declaratively configured — change `home.nix`, run `rebuild.sh`, and you're done.
+
+## Under the hood
+
+If you dig into the config, you'll find:
+
+- **Neovim**: Lazy plugin manager with Rose Pine theme, git integration (Neogit, Gitsigns), file browser (Oil), and more
+- **Zsh**: Starship prompt showing git status, auto-completion, syntax highlighting, custom aliases
+- **WezTerm**: Tokyo Night theme, 90% opacity, Windows clipboard integration
+- **herdr**: Vim-style keybindings, workspaces and panes
+
+But you don't need to understand any of this to use the setup — it just works out of the box.
 
 ## How this differs from the macOS original
 

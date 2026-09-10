@@ -1,0 +1,44 @@
+2026-09-10T17:50:39.742044Z  INFO herdr::api::server: api server listening path=/home/danie/.config/herdr/herdr.sock
+2026-09-10T17:50:39.750055Z  INFO herdr::app: using pane scrollback configuration pane_scrollback_limit_bytes=10000000
+2026-09-10T17:50:40.288778Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-09-10T17:50:40.297479Z  INFO herdr::logging: spawning pane terminal event="pane.spawn.start" subsystem="pane" outcome="started" pane_id=1 rows=24 cols=80 scrollback_limit_bytes=10000000
+2026-09-10T17:50:40.310603Z  INFO herdr::logging: pane child spawned event="pane.spawned" subsystem="pane" outcome="ok" pane_id=1 pid=1044
+2026-09-10T17:50:40.311807Z  INFO herdr::logging: workspace created event="workspace.create" subsystem="workspace" outcome="ok" workspace_id="w1" pane_id=1
+2026-09-10T17:50:40.311822Z  INFO herdr::logging: workspace focused event="workspace.focus" subsystem="workspace" outcome="ok" workspace_id="w1"
+2026-09-10T17:50:40.311834Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-09-10T17:50:40.311849Z  INFO herdr::server::headless: created startup workspace cwd=/home/danie/molda_dotfiles
+2026-09-10T17:50:40.312885Z  INFO herdr::server::headless: client protocol socket listening path=/home/danie/.config/herdr/herdr-client.sock
+2026-09-10T17:50:40.312935Z  INFO herdr::server::headless: herdr server started api_socket=/home/danie/.config/herdr/herdr.sock client_socket=/home/danie/.config/herdr/herdr-client.sock
+2026-09-10T17:50:40.313828Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="server" outcome="started" pid=1030
+2026-09-10T17:50:40.383694Z  INFO herdr::logging: update available event="update.available" subsystem="update" outcome="ok" version="0.9.0"
+2026-09-10T17:50:40.401902Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="muse"
+2026-09-10T17:50:40.401931Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="qwen"
+2026-09-10T17:50:40.481020Z  INFO herdr::update: auto-update check: v0.9.0 available through Homebrew, waiting for explicit install
+2026-09-10T17:50:40.482132Z  INFO herdr::server::headless: client connected client_id=2 cols=187 rows=70 cell_width_px=0 cell_height_px=0 render_encoding=SemanticFrame
+2026-09-10T17:50:45.319514Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/danie/.config/herdr/session.json workspaces=1
+2026-09-10T17:50:51.268100Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/danie/.config/herdr/session.json workspaces=1
+2026-09-10T17:55:17.189973Z  INFO herdr::server::headless: client disconnected client_id=2
+2026-09-10T17:55:20.968881Z  INFO herdr::logging: pane child exited event="pane.exit" subsystem="pane" outcome="completed" pane_id=1 status="ExitStatus { code: 127, signal: None }"
+2026-09-10T17:55:20.969122Z  INFO herdr::pane: pane session terminated pane=1 pid=1044 signal=Hangup
+2026-09-10T17:55:25.971731Z  INFO herdr::logging: session cleared event="persist.clear" subsystem="persist" outcome="ok" path=/home/danie/.config/herdr/session.json
+2026-09-10T17:55:34.313999Z  INFO herdr::server::headless: client connected client_id=4 cols=80 rows=24 cell_width_px=0 cell_height_px=0 render_encoding=SemanticFrame
+2026-09-10T17:55:34.314119Z  INFO herdr::logging: spawning pane terminal event="pane.spawn.start" subsystem="pane" outcome="started" pane_id=2 rows=24 cols=80 scrollback_limit_bytes=10000000
+2026-09-10T17:55:34.315905Z  INFO herdr::logging: pane child spawned event="pane.spawned" subsystem="pane" outcome="ok" pane_id=2 pid=1991
+2026-09-10T17:55:34.316303Z  INFO herdr::logging: workspace created event="workspace.create" subsystem="workspace" outcome="ok" workspace_id="w2" pane_id=2
+2026-09-10T17:55:34.316315Z  INFO herdr::logging: workspace focused event="workspace.focus" subsystem="workspace" outcome="ok" workspace_id="w2"
+2026-09-10T17:55:34.316427Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w2" tab_id="w2:t1"
+2026-09-10T17:55:39.322588Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/danie/.config/herdr/session.json workspaces=1
+2026-09-10T17:55:49.307590Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/danie/.config/herdr/session.json workspaces=1
+2026-09-10T17:59:58.611591Z  INFO herdr::app::actions: copied selection to clipboard
+2026-09-10T18:00:28.776861Z  INFO herdr::app::actions: copied selection to clipboard
+2026-09-10T18:01:45.095290Z  INFO herdr::app::actions: copied selection to clipboard
+2026-09-10T18:05:51.969217Z  INFO herdr::logging: pane child exited event="pane.exit" subsystem="pane" outcome="completed" pane_id=2 status="ExitStatus { code: 0, signal: None }"
+2026-09-10T18:05:51.969364Z  INFO herdr::pane: pane session terminated pane=2 pid=1991 signal=Hangup
+2026-09-10T18:05:51.969431Z  INFO herdr::logging: spawning pane terminal event="pane.spawn.start" subsystem="pane" outcome="started" pane_id=3 rows=23 cols=54 scrollback_limit_bytes=10000000
+2026-09-10T18:05:51.972909Z  INFO herdr::logging: pane child spawned event="pane.spawned" subsystem="pane" outcome="ok" pane_id=3 pid=3946
+2026-09-10T18:05:51.973134Z  INFO herdr::logging: workspace created event="workspace.create" subsystem="workspace" outcome="ok" workspace_id="w3" pane_id=3
+2026-09-10T18:05:51.973143Z  INFO herdr::logging: workspace focused event="workspace.focus" subsystem="workspace" outcome="ok" workspace_id="w3"
+2026-09-10T18:05:51.973241Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w3" tab_id="w3:t1"
+2026-09-10T18:05:56.988323Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/danie/.config/herdr/session.json workspaces=1
+2026-09-10T18:08:03.326908Z  INFO herdr::server::headless: client disconnected client_id=4
+2026-09-10T18:08:14.473740Z  INFO herdr::server::headless: client connected client_id=6 cols=120 rows=50 cell_width_px=0 cell_height_px=0 render_encoding=SemanticFrame

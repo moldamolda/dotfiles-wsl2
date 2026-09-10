@@ -1,0 +1,15 @@
+# Editor temporary files
+*.swp
+*.swo
+*~
+.*.swp
+.*.swo
+
+# Herdr terminal emulator runtime files
+home/.config/herdr/herdr-client.log
+home/.config/herdr/herdr-server.log
+home/.config/herdr/session.json
+home/.config/herdr/release-notes.json
+
+# Windows metadata files
+:Zone.Identifier

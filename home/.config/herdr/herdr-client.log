@@ -1,9 +1,0 @@
-2026-09-10T17:50:40.339457Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=1029
-2026-09-10T17:50:40.339537Z  INFO herdr::client: connecting to server path=/home/danie/.config/herdr/herdr-client.sock
-2026-09-10T17:50:40.481578Z  INFO herdr::client: handshake succeeded version=17 encoding=SemanticFrame
-2026-09-10T17:55:34.157581Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=1982
-2026-09-10T17:55:34.157620Z  INFO herdr::client: connecting to server path=/home/danie/.config/herdr/herdr-client.sock
-2026-09-10T17:55:34.313861Z  INFO herdr::client: handshake succeeded version=17 encoding=SemanticFrame
-2026-09-10T18:08:14.443727Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=4861
-2026-09-10T18:08:14.443758Z  INFO herdr::client: connecting to server path=/home/danie/.config/herdr/herdr-client.sock
-2026-09-10T18:08:14.472630Z  INFO herdr::client: handshake succeeded version=17 encoding=SemanticFrame

@@ -1,6 +1,6 @@
 # dotfiles-wsl2
 
-A WSL2 / Linux port of Kun Chen's [nix-darwin + Home Manager dotfiles](https://github.com/kunchenguid/dotfiles) (from [this video](https://youtu.be/5N-okeDdIuI)).
+A WSL2 / Linux port of kunchenguid's [nix-darwin + Home Manager dotfiles](https://github.com/kunchenguid/dotfiles) (from [this video](https://youtu.be/5N-okeDdIuI)).
 
 If you watched the video, loved the setup, and use **WSL2** instead of a Mac - this is for you. Everything that's cross-platform (Nix, Home Manager, packages, shell, editor) works the same way. Everything that was macOS-only (nix-darwin, system defaults, declarative Homebrew) has been replaced or dropped, and this README explains exactly what changed and why.
 
@@ -11,10 +11,10 @@ Running `./rebuild.sh` sets up/updates:
 - CLI tools via Nix: `ripgrep`, `fd`, `fzf`, `jq`, `lazygit`, `neovim`, `claude-code`
 - Shell: `zsh` with Homebrew shell integration
 - Editor: `nvim` as the default `$EDITOR`
-- Terminal: WezTerm with custom colors
-- Terminal multiplexer: herdr
+- Terminal: WezTerm with custom colors and Windows clipboard integration
+- Agent workspace manager: herdr (manage Claude/Codex/opencode sessions across workspaces and panes; also works as a general terminal multiplexer)
 
-Everything is declaratively configured — change `home.nix`, run `rebuild.sh`, and you're done.
+Everything is declaratively configured - change `home.nix`, run `rebuild.sh`, and you're done.
 
 ## Under the hood
 
@@ -23,7 +23,7 @@ If you dig into the config, you'll find:
 - **Neovim**: Lazy plugin manager with Rose Pine theme, git integration (Neogit, Gitsigns), file browser (Oil), and more
 - **Zsh**: Starship prompt showing git status, auto-completion, syntax highlighting, custom aliases
 - **WezTerm**: Tokyo Night theme, 90% opacity, Windows clipboard integration
-- **herdr**: Vim-style keybindings, workspaces and panes
+- **herdr**: AI-agent session manager (Claude, Codex, opencode) with an agents panel, Vim-style keybindings, workspaces and panes
 
 But you don't need to understand any of this to use the setup — it just works out of the box.
 
@@ -40,37 +40,13 @@ If you're following the video step by step, this table is the map between "what 
 
 ## Prerequisites (manual, one-time setup on a fresh machine)
 
-These aren't managed by Nix/Home Manager and need to be in place before `./rebuild.sh` will work.
+A few things aren't managed by Nix/Home Manager and need to be in place before `./bootstrap.sh` and `./rebuild.sh` will work.
 
 ### 1. WSL2 + Ubuntu
 Install/update WSL2 with a Linux distro (Ubuntu recommended) from Windows first. Make sure you're on WSL2, not WSL1 (`wsl -l -v` from PowerShell to check).
 
-### 2. Nix (Determinate Systems installer)
-```bash
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
-```
-
-### 3. Home Manager (first-time bootstrap)
-```bash
-git clone git@github.com:YOUR_USERNAME/dotfiles-wsl2.git ~/dotfiles-wsl2
-cd ~/dotfiles-wsl2
-nix run home-manager -- switch --flake .#YOUR_USERNAME
-```
-
-### 4. Homebrew (Linuxbrew)
-Only used for packages not (yet) available in Nixpkgs (e.g. `herdr`):
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-sudo apt-get install build-essential bubblewrap
-```
-Shell integration (`brew shellenv`) is already wired up via `home.nix`, so it works automatically in every new terminal after your first `rebuild.sh` run.
-
-### 5. herdr (via Homebrew, not Nix)
-```bash
-brew install herdr
-```
-
-### 6. GitHub SSH key
+### 2. GitHub SSH key
+Needed to clone this repo over SSH:
 ```bash
 ssh-keygen -t ed25519 -C "your-email@example.com"
 eval "$(ssh-agent -s)"
@@ -82,14 +58,30 @@ Add the output on GitHub under **Settings → SSH and GPG keys → New SSH key**
 ssh -T git@github.com
 ```
 
+### 3. win32yank (Windows clipboard integration)
+WezTerm and Neovim share the Windows clipboard via `win32yank.exe`, which must be available on your Windows `PATH` (it ships with the Neovim Windows install, or install it standalone). Without it, copy/paste between WSL and Windows won't work. This lives on the Windows side, so it isn't installed by `bootstrap.sh`.
+
 ## Getting started (fresh machine)
+
+After the prerequisites above, clone the repo and run the bootstrap script:
 
 ```bash
 git clone git@github.com:YOUR_USERNAME/dotfiles-wsl2.git ~/dotfiles-wsl2
 cd ~/dotfiles-wsl2
-chmod +x rebuild.sh
+./bootstrap.sh
+```
+
+`bootstrap.sh` installs the system dependencies (`build-essential`, `bubblewrap`, `unzip`, WSLg graphics libs), WezTerm, [Nix](https://install.determinate.systems/nix) (Determinate Systems installer), and Homebrew (Linuxbrew). It's idempotent - already-installed tools are skipped.
+
+Then restart your shell so Nix and Homebrew are on your `PATH`, install `herdr` (only available via Homebrew, not Nixpkgs), and run the first build:
+
+```bash
+exec zsh
+brew install herdr
 ./rebuild.sh "initial setup"
 ```
+
+Homebrew shell integration (`brew shellenv`) is wired up via `home.nix`, so it works automatically in every new terminal after your first `rebuild.sh` run.
 
 ## Daily use
 
@@ -114,8 +106,8 @@ This applies the change, commits, and pushes - all in one command.
 
 ## Contributing
 
-These are personal dotfiles, shared publicly so people can read them, learn from them, and fork them freely - same spirit as the original. Feature requests and pull requests aren't accepted here; PRs will be auto-closed. Found a bug? Open an Issue.
+These are personal dotfiles, shared publicly so people can read, learn from, and fork them freely. PRs and feature requests aren't accepted; found a bug? Open an Issue. See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## Credit
 
-Based on Kun Chen's original macOS dotfiles: [https://github.com/kunchenguid/dotfiles], demonstrated in [this video](https://youtu.be/5N-okeDdIuI). This repo exists purely to make the same ideas work for WSL2/Linux users who don't have a Mac.
+Based on kunchenguid's original macOS dotfiles: [https://github.com/kunchenguid/dotfiles], demonstrated in [this video](https://youtu.be/5N-okeDdIuI). This repo exists purely to make the same ideas work for WSL2/Linux users who don't have a Mac.

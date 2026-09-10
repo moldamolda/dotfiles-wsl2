@@ -21,4 +21,4 @@ Please do not open pull requests against this repo. They are auto-closed, includ
 
 ## Credit
 
-This repo is a WSL2/Linux port of Kun Chen's original nix-darwin + Home Manager dotfiles. If your question or bug is about the macOS-specific parts (nix-darwin, Homebrew system integration), it likely belongs in his repo, not this one.
+This repo is a WSL2/Linux port of kunchenguid's original nix-darwin + Home Manager dotfiles. If your question or bug is about the macOS-specific parts (nix-darwin, Homebrew system integration), it likely belongs in his repo, not this one.

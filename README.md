@@ -1,4 +1,4 @@
-# molda-dotfiles (WSL2 edition)
+# dotfiles-wsl2
 
 A WSL2 / Linux port of Kun Chen's [nix-darwin + Home Manager dotfiles](https://github.com/kunchenguid/dotfiles) (from [this video](https://youtu.be/5N-okeDdIuI)).
 
@@ -37,8 +37,8 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 
 ### 3. Home Manager (first-time bootstrap)
 ```bash
-git clone git@github.com:YOUR_USERNAME/molda-dotfiles.git ~/molda_dotfiles
-cd ~/molda_dotfiles
+git clone git@github.com:YOUR_USERNAME/dotfiles-wsl2.git ~/dotfiles-wsl2
+cd ~/dotfiles-wsl2
 nix run home-manager -- switch --flake .#YOUR_USERNAME
 ```
 
@@ -70,8 +70,8 @@ ssh -T git@github.com
 ## Getting started (fresh machine)
 
 ```bash
-git clone git@github.com:YOUR_USERNAME/molda-dotfiles.git ~/molda_dotfiles
-cd ~/molda_dotfiles
+git clone git@github.com:YOUR_USERNAME/dotfiles-wsl2.git ~/dotfiles-wsl2
+cd ~/dotfiles-wsl2
 chmod +x rebuild.sh
 ./rebuild.sh "initial setup"
 ```
